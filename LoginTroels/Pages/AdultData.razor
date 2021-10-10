@@ -1,14 +1,16 @@
 ﻿@page "/AdultData"
-
 @using LoginExample.Data
 @using LoginTroels.Models
-@using System.Text.Json.Serialization
+@using System.Web
+@using LoginTroels.Persistence
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Converters
+@using System.IO
 @inject WeatherForecastService ForecastService
-@using Newtonsoft.Json;
 
 <h3>This page shows the list of adults.</h3>
 
-@if (forecasts == null) {
+@if (person == null) {
     <p>
         <em>Loading...</em>
     </p>
@@ -42,9 +44,8 @@
 }
 
 @code {
-    JsonConvert.DeserializeObject() //doesnt work??
+    HiredPerson person = JsonConvert.DeserializeObject<HiredPerson>(File.ReadAllText(@"adults.json"));
     protected override async Task OnInitializedAsync() {
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
     }
-
 }

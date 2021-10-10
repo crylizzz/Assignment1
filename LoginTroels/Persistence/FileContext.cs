@@ -4,7 +4,7 @@ using System.IO;
 using System.Text.Json;
 using Models;
 
-namespace FileData
+namespace LoginTroels.Persistence
 {
     public class FileContext
     {
