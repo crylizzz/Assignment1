@@ -1,0 +1,98 @@
+﻿@page "/AddAdult"
+@using Models
+@using global::Models
+@using Persistence
+@using System.IO
+@using LoginExample.Data
+@inject IData Data
+@inject NavigationManager NavigationManager
+@attribute [Authorize(Policy = "MustBeVIA")]
+
+<h3>You can add an adult here.</h3>
+
+<EditForm Model="@newAdult" OnValidSubmit="@AddNewAdult">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+    <ValidationSummary></ValidationSummary>
+    
+    <div class="form-group">
+        <label>First name: </label>
+        <input type="text" @bind-value="newAdult.FirstName"/>
+    </div>
+    
+    <div class="form-group">
+        <label>Last name: </label>
+        <input type="text" @bind-value="newAdult.LastName"/>
+    </div>
+    
+    <div class="form-group">
+        <label>Age: </label>
+        <input type="text" @bind-value="newAdult.Age"/>
+    </div>
+    
+    <div class="form-group">
+        <label>Sex: </label>
+        <br/>
+        <input list="sexList" @bind-value="newAdult.Sex"/>
+        <datalist id="sexList">
+            <option value="Male"> </option>
+            <option value="Female"> </option>
+            <option value="Prefer not to say"> </option>
+        </datalist>
+    </div>
+    
+    <div class="form-group">
+        <label>Select hair colour: </label>
+        <br/>
+        <input list="hairColours" @bind-value="newAdult.HairColor"/>
+        <datalist id="hairColours">
+            <option value="Brown"> </option>
+            <option value="Black"> </option>
+            <option value="Red"> </option>
+        </datalist>
+    </div>
+    
+    <div class="form-group">
+        <label>Select eye colour: </label>
+        <br/>
+        <input list="eyeColours" @bind-value="newAdult.EyeColor"/>
+        <datalist id="eyeColours">
+            <option value="Black"> </option>
+            <option value="Blue"> </option>
+            <option value="Green"> </option>
+        </datalist>
+    </div>
+    
+    <div class="form-group">
+        <label>Height (cm): </label>
+        <input type="text" @bind-value="newAdult.Height"/>
+    </div>
+    
+    <div class="form-group">
+        <label>Weight (kg): </label>
+        <input type="text" @bind-value="newAdult.Weight"/>
+    </div>
+    
+    <div class="form-group">
+        <label>Job title: </label>
+        <input type="text" @bind-value="newAdult.JobTitle.JobTitle"/>
+    </div>
+    
+    <div class="form-group">
+        <label>Salary: </label>
+        <input type="text" @bind-value="newAdult.JobTitle.Salary"/>
+    </div>
+    
+    <button class="btn btn-primary" type="submit">Create adult</button>
+    
+</EditForm>
+
+@code {
+    private readonly Adult newAdult = new Adult();
+    private readonly Job newJob = new Job();
+
+    private void AddNewAdult()
+    {
+        newAdult.JobTitle = newJob;
+        Data.AddAdult(newAdult);
+    }
+}

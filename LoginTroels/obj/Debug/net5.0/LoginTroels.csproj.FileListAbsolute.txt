@@ -58,10 +58,10 @@ C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\obj\Debug\net5.0\LoginTroel
 C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\obj\Debug\net5.0\LoginTroels.csproj.CopyComplete
 C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\bin\Debug\net5.0\adults.json
 C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\bin\Debug\net5.0\families.json
-C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\obj\Debug\net5.0\RazorDeclaration\Pages\AddAdult.razor.g.cs
-C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\obj\Debug\net5.0\Razor\Pages\AddAdult.razor.g.cs
 C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\obj\Debug\net5.0\RazorDeclaration\Pages\AdultData.razor.g.cs
 C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\obj\Debug\net5.0\Razor\Pages\AdultData.razor.g.cs
 C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\obj\Debug\net5.0\RazorDeclaration\Pages\SearchAdult.razor.g.cs
 C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\obj\Debug\net5.0\Razor\Pages\SearchAdult.razor.g.cs
+C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\obj\Debug\net5.0\RazorDeclaration\Pages\AdultAdd.razor.g.cs
+C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\obj\Debug\net5.0\Razor\Pages\AdultAdd.razor.g.cs

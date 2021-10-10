@@ -69,35 +69,49 @@ using LoginExample;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AddAdult.razor"
+#line 2 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultAdd.razor"
 using Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AddAdult.razor"
+#line 3 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultAdd.razor"
 using global::Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AddAdult.razor"
+#line 4 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultAdd.razor"
 using Persistence;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AddAdult.razor"
+#line 5 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultAdd.razor"
+using System.IO;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultAdd.razor"
+using LoginExample.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultAdd.razor"
            [Authorize(Policy = "MustBeVIA")]
 
 #line default
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/AddAdult")]
-    public partial class AddAdult : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class AdultAdd : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -105,37 +119,22 @@ using Persistence;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 69 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AddAdult.razor"
+#line 89 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultAdd.razor"
        
-    public string firstName { get; set; }
-    public string lastName { get; set; }
-    public string hairColor { get; set; }
-    public string eyeColor { get; set; }
-    public int age { get; set; }
-    public float weight { get; set; }
-    public int height { get; set; }
-    public string sex { get; set; }
+    private readonly Adult newAdult = new Adult();
+    private readonly Job newJob = new Job();
 
-    protected async Task OnSave()
+    private void AddNewAdult()
     {
-        Person person = new Person()
-        {
-            FirstName = firstName,
-            Age = age,
-            EyeColor = eyeColor,
-            Height = height,
-            HairColor = hairColor,
-            LastName = lastName,
-            Sex = sex,
-            Weight = weight
-        };
+        newAdult.JobTitle = newJob;
+        Data.AddAdult(newAdult);
     }
-    //methods from filecontext to save person
-    //job doesnt work
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IData Data { get; set; }
     }
 }
 #pragma warning restore 1591
