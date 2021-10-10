@@ -11,7 +11,6 @@ namespace LoginTroels.Pages
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Components;
 #nullable restore
 #line 1 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\_Imports.razor"
 using System.Net.Http;
@@ -68,15 +67,58 @@ using LoginExample;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Security")]
-    public partial class SecurityLevel : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 2 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\SearchAdult.razor"
+using LoginTroels.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\SearchAdult.razor"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\SearchAdult.razor"
+using System.IO;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\SearchAdult.razor"
+using global::Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\SearchAdult.razor"
+using Microsoft.AspNetCore.Components;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/AdultSearch")]
+    public partial class SearchAdult : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+#nullable restore
+#line 55 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\SearchAdult.razor"
+       
+    HiredPerson[] persons = JsonConvert.DeserializeObject<HiredPerson[]>(File.ReadAllText(@"adults.json"));
+    public string firstName { get; set; }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

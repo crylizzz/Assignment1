@@ -126,14 +126,13 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 52 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultData.razor"
+#line 51 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultData.razor"
        
     HiredPerson[] persons = JsonConvert.DeserializeObject<HiredPerson[]>(File.ReadAllText(@"adults.json"));
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private WeatherForecastService ForecastService { get; set; }
     }
 }
 #pragma warning restore 1591
