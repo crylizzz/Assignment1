@@ -77,6 +77,20 @@ using Models;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AddAdult.razor"
+using global::Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AddAdult.razor"
+using Persistence;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AddAdult.razor"
            [Authorize(Policy = "MustBeVIA")]
 
 #line default
@@ -91,16 +105,34 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 67 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AddAdult.razor"
+#line 69 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AddAdult.razor"
        
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string HairColor { get; set; }
-    public string EyeColor { get; set; }
-    public int Age { get; set; }
-    public float Weight { get; set; }
-    public int Height { get; set; }
-    public string Sex { get; set; }
+    public string firstName { get; set; }
+    public string lastName { get; set; }
+    public string hairColor { get; set; }
+    public string eyeColor { get; set; }
+    public int age { get; set; }
+    public float weight { get; set; }
+    public int height { get; set; }
+    public string sex { get; set; }
+
+    protected async Task OnSave()
+    {
+        Person person = new Person()
+        {
+            FirstName = firstName,
+            Age = age,
+            EyeColor = eyeColor,
+            Height = height,
+            HairColor = hairColor,
+            LastName = lastName,
+            Sex = sex,
+            Weight = weight
+        };
+    }
+    //methods from filecontext to save person
+    //job doesnt work
+    
 
 #line default
 #line hidden

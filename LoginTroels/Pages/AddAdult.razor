@@ -1,7 +1,7 @@
 ﻿@page "/AddAdult"
 @using Models
 @using global::Models
-@inject Persistence.FileContext // doesnt work??
+@using Persistence
 @attribute [Authorize(Policy = "MustBeVIA")]
 
 <h3>You can add an adult here.</h3>
@@ -76,7 +76,7 @@
     public int height { get; set; }
     public string sex { get; set; }
 
-    private async Person OnSave()
+    protected async Task OnSave()
     {
         Person person = new Person()
         {
@@ -89,7 +89,7 @@
             Sex = sex,
             Weight = weight
         };
-        //methods from filecontext to save person
-        //job doesnt work
     }
+    //methods from filecontext to save person
+    //job doesnt work
 }

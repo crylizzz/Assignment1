@@ -4,6 +4,7 @@ namespace LoginTroels.Models
 {
     public class HiredPerson
     {
+        public Job JobTitle { get; set; }
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -13,6 +14,5 @@ namespace LoginTroels.Models
         public float Weight { get; set; }
         public int Height { get; set; }
         public string Sex { get; set; }
-        public Job JobTitle { get; set; }
     }
 }

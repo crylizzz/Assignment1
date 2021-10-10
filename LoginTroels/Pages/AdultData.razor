@@ -6,11 +6,10 @@
 @using Newtonsoft.Json
 @using Newtonsoft.Json.Converters
 @using System.IO
-@inject WeatherForecastService ForecastService
 
 <h3>This page shows the list of adults.</h3>
 
-@if (person == null) {
+@if (persons == null) {
     <p>
         <em>Loading...</em>
     </p>
@@ -31,12 +30,18 @@
         </tr>
         </thead>
         <tbody>
-        @foreach (var forecast in forecasts) {
+        @foreach (var person in persons) {
             <tr>
-                <td>@forecast.Date.ToShortDateString()</td>
-                <td>@forecast.TemperatureC</td>
-                <td>@forecast.TemperatureF</td>
-                <td>@forecast.Summary</td>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+                <td>@person.HairColor</td>
+                <td>@person.EyeColor</td>
+                <td>@person.Age</td>
+                <td>@person.Weight</td>
+                <td>@person.Height</td>
+                <td>@person.Sex</td>
+                <td>@person.JobTitle</td>
+                <td>@person.JobTitle.Salary</td>
             </tr>
         }
         </tbody>
@@ -44,8 +49,5 @@
 }
 
 @code {
-    HiredPerson person = JsonConvert.DeserializeObject<HiredPerson>(File.ReadAllText(@"adults.json"));
-    protected override async Task OnInitializedAsync() {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
-    }
+    HiredPerson[] persons = JsonConvert.DeserializeObject<HiredPerson[]>(File.ReadAllText(@"adults.json"));
 }

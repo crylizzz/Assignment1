@@ -69,14 +69,56 @@ using LoginExample;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\FetchData.razor"
+#line 2 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultData.razor"
 using LoginExample.Data;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/fetchdata")]
-    public partial class FetchData : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 3 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultData.razor"
+using LoginTroels.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultData.razor"
+using System.Web;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultData.razor"
+using LoginTroels.Persistence;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultData.razor"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultData.razor"
+using Newtonsoft.Json.Converters;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultData.razor"
+using System.IO;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/AdultData")]
+    public partial class AdultData : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -84,14 +126,9 @@ using LoginExample.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 37 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\FetchData.razor"
+#line 52 "C:\Users\horse\RiderProjects\LoginTroels\LoginTroels\Pages\AdultData.razor"
        
-    private WeatherForecast[] forecasts;
-
-    protected override async Task OnInitializedAsync() {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
-    }
-
+    HiredPerson[] persons = JsonConvert.DeserializeObject<HiredPerson[]>(File.ReadAllText(@"adults.json"));
 
 #line default
 #line hidden
