@@ -1,0 +1,95 @@
+﻿@page "/AddAdult"
+@using Models
+@using global::Models
+@inject Persistence.FileContext // doesnt work??
+@attribute [Authorize(Policy = "MustBeVIA")]
+
+<h3>You can add an adult here.</h3>
+
+<div class="form-group">
+    <label>First name: </label>
+    <input type="text" @bind-value="firstName"/>
+</div>
+
+<div class="form-group">
+    <label>Last name: </label>
+    <input type="text" @bind-value="lastName"/>
+</div>
+
+<div class="form-group">
+    <label>Age: </label>
+    <input type="text" @bind-value="age"/>
+</div>
+
+<div class="form-group">
+    <label>Sex: </label>
+    <br/>
+    <input list="sexList" @bind-value="sex"/>
+    <datalist id="sexList">
+        <option value="Male"> </option>
+        <option value="Female"> </option>
+        <option value="Prefer not to say"> </option>
+    </datalist>
+</div>
+
+<div class="form-group">
+    <label>Select hair colour: </label>
+    <br/>
+    <input list="hairColours" @bind-value="hairColor"/>
+    <datalist id="hairColours">
+        <option value="Brown"> </option>
+        <option value="Black"> </option>
+        <option value="Red"> </option>
+    </datalist>
+</div>
+
+<div class="form-group">
+    <label>Select eye colour: </label>
+    <br/>
+    <input list="eyeColours" @bind-value="eyeColor"/>
+    <datalist id="eyeColours">
+        <option value="Black"> </option>
+        <option value="Blue"> </option>
+        <option value="Green"> </option>
+    </datalist>
+</div>
+
+<div class="form-group">
+    <label>Height (cm): </label>
+    <input type="text" @bind-value="height"/>
+</div>
+
+<div class="form-group">
+    <label>Weight (kg): </label>
+    <input type="text" @bind-value="weight"/>
+</div>
+
+<button class="btn btn-primary">Create adult</button>
+
+@code {
+    public string firstName { get; set; }
+    public string lastName { get; set; }
+    public string hairColor { get; set; }
+    public string eyeColor { get; set; }
+    public int age { get; set; }
+    public float weight { get; set; }
+    public int height { get; set; }
+    public string sex { get; set; }
+
+    private async Person OnSave()
+    {
+        Person person = new Person()
+        {
+            FirstName = firstName,
+            Age = age,
+            EyeColor = eyeColor,
+            Height = height,
+            HairColor = hairColor,
+            LastName = lastName,
+            Sex = sex,
+            Weight = weight
+        };
+        //methods from filecontext to save person
+        //job doesnt work
+    }
+}
